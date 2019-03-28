@@ -3,7 +3,7 @@ package ddl
 type BaseGenerator struct {
 }
 
-func (g *BaseGenerator) VisitCreateTable(name string) string {
+func (g *BaseGenerator) VisitCreateTable(node CreateTable) string {
 	return ""
 }
 
@@ -11,7 +11,7 @@ func (g *BaseGenerator) VisitCreateTableIfNotExists(name string) string {
 	return ""
 }
 
-func (g *BaseGenerator) VisitDropTable(name string) string {
+func (g *BaseGenerator) VisitDropTable(node DropTable) string {
 	return ""
 }
 

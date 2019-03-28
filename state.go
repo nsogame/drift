@@ -2,12 +2,21 @@ package drift
 
 // DatabaseState describes the general overall state of a database
 type DatabaseState struct {
+	Tables map[string]TableState
 }
 
-// Diff describes the change set between two database states
-type Diff struct {
+// TableState describes the state of a table
+type TableState struct {
+	Name    string
+	Columns map[string]ColumnState
 }
 
-func CalculateDiff(left, right DatabaseState) Diff {
+type ColumnState struct {
+	FQName       string
+	Name         string
+	InPrimaryKey bool
+}
 
+func EmptyState() DatabaseState {
+	return DatabaseState{}
 }
